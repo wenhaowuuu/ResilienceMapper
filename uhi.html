@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<!-- HOW TO RECORD YOUR SCREEN -->
+<!-- https://www.digitaltrends.com/computing/how-to-record-your-computer-screen/ -->
+
+<html>
+<link rel="stylesheet" href="dist/leaflet.print.css"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="css/style0.css">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+crossorigin=""/>
+
+<!-- //LOAD THE SATELLITE MAP -->
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-image/v0.0.4/leaflet-image.js'></script> -->
+    <style>
+        body { margin:0; padding:0; }
+        #map0 { position:absolute; left:400px; right:0; top:30px; bottom:0; }
+    </style>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+
+
+<!-- 1. The Upload function
+ref: https://fineuploader.com/demos.html
+https://stackoverflow.com/questions/5587973/javascript-upload-file
+https://stackoverflow.com/questions/1109728/how-to-create-a-website-which-uploads-download-data-from-to-database-and-excel
+https://github.com/gka/pyshpgeocode -->
+
+
+
+<!-- <table id ="testTable" summary="Infrastructure Efficiency Profile." rules="groups" frame="hsides" border="2">
+  <caption>MOCKUP <p style="background-color: #f07f30; color: #ffffff; font-weight: bold;" id="exceltitle"></p></caption>
+  <caption>DataXLat @ GeoAdaptive LLC</caption>
+  <thead valign="top">
+    <tr>
+      <th>ID</th>
+      <th>Country</th>
+      <th>Provinces</th>
+      <th>Cities</th>
+      <th class = "X_colhead" border="1">Social-Economy<br>Poverty Rate: % of population living in poverty</th>
+      <th class = "X_colhead" border="1">Transportation<br>Total Length of Roads (km)</th>
+      <th class = "X_colhead" border="1">Transportation<br>Road Density (area/roads km)</th>
+      <th class = "X_colhead" border="1">Transportation<br>Typology split: Rural / Urban</th>
+      <th class = "X_colhead" border="1">Transportation<br>Typology split: km x mayor, secondary, tertiary</th>
+      <th class = "X_colhead" border="1">Transportation<br>Road efficiency (% population within 30 minutes of road)</th>
+      <th class = "X_colhead" border="1">Utility<br>Sanitation: % of coverage</th>
+      <th class = "X_colhead" border="1">Utility<br>Electricity: % of coverage</th>
+      <th class = "X_colhead" border="1">Utility<br>Water: % of coverage</th>
+      <th class = "X_colhead" border="1">Utility<br>Basic Needs Unsatisfied:</th>
+      <th class = "X_colhead" border="1">Other<br>Notes:</th>
+    </tr>
+  </thead>
+       <tbody>
+         <tr>
+           <td id = "X_ID">0001</td>
+           <td id = "X_country">Honduras</td>
+           <td id = "X_department">Peten</td>
+           <td id = "X_municipality">Quito</td>
+           <td id = "X_PovertyRate">12%</td>
+           <td id = "X_rdlength">3671</td>
+           <td id = "X_rddensity">200</td>
+           <td id = "X_typologysplit1">6:4</td>
+           <td id = "X_typologysplit2">1:3:6</td>
+           <td id = "X_rdefficiency">35</td>
+           <td id = "X_sanitation">73</td>
+           <td id = "X_Electricity">85</td>
+           <td id = "X_Water">90</td>
+           <td id = "X_BasicNeeds">24</td>
+           <td id = "X_Notes">something to consider</td>
+         </tr>
+  </table> -->
+
+  <!-- //PDF BASIC FRAMEWORK -->
+  <!-- <div id = "testPDF">
+    <h1 id = "PDFheading">The PDF Heading </h1>
+      <h2 class = "title">The Title </h2>
+        <h3 class = "subtitle"> The Subtitle </h3>
+          <p class = "text">the description </p>
+        <h3 class = "subtitle"> The Subtitle </h3>
+          <p class = "text">the description </p>
+  </div> -->
+
+<body>
+
+<div id='map0' style="position: absolute; right:0px; left:19.8%; top:1.85%; height:68%; z-index:70;"></div>
+<!--Left Panel-->
+<div class = "header">
+  <p class = "header_text">Welcome to Adap<span id = "red">Kit</span></p>
+</div>
+
+<div style="display: block; over-flow:auto; position: absolute; left: 0.37%; width: 19.8%; top: 1.67%; data-bottom="false" z-index:50;">
+    <h2 class = "main-heading">Urban Heat Island Analyst
+      <br>
+    </h2>
+    <br>
+    <br>
+    <label class="selectionlabel" for="dest" style="position:relative; left:0.52%;">SCALE &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+    <label class="selectionlabel" for="dest" style="position:relative; left:2.8%;">CUSTOMER BOUNDARY</label>
+    <button id = "userdata">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     upload here    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </button>
+    <br>
+    <div class="search" style="display:inline-block;position:relative;left:0.52%;">
+      <div style="display:inline-block;">
+        <div class="option" class="leaflet-bar">
+          <select name="basemaps" id="location1" onChange="Basemap(this)">
+            <option class = "option" id="district" value = "district">District</option>
+            <option class = "option" id="regional" value = "regional">Regional</option>
+            <option class = "option" id="city" value = "city">City</option>
+            <option class = "option" id="neighborhood" value = "neighborhood">Neighborhood</option>
+          </select>
+        </div>
+
+        <!-- <label class="selectionlabel" for="dest">DATA UPLOAD</label> -->
+        <br>
+        <!-- <label class="selectionlabel" for="dest">Analysis Boundary</label> -->
+        <br>
+        <!-- <label class="layerlabel" id = "upload">Province
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp -->
+        <!-- <button>upload</button> -->
+        </label>
+        <!-- <br>
+        <label class="layerlabel">Municipality
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <button>upload</button>
+        </label>
+        <br>
+        <label class="layerlabel">District
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <button>upload</button>
+        </label><br>
+        <br>
+        <br> -->
+        <label class="selectionlabel" for="dest">Visualization</label>
+        <br>
+        <input id="buildings" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Building Footprints  &nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+        <input id="industrial" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Industrial Land</label><br>
+        <input id="railways" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Railways &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+        <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Roads</label><br>
+        <input id="greenspaces" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Greenspace &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+        <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Waterbody</label>
+
+        <br>
+
+        <!-- //STILL NOT WORKING AS THE FIRST CHECKBOX ALWAYS WON'T ALLOW SELECTION -->
+        <!-- <br> -->
+        <!-- <input id="uhihazards" class="layers" type="checkbox" name="vehicle" value="SOMETHINGELSE">
+        <label class="layerlabel">Urban Heat Island Hazards</label> -->
+
+        <!-- <label class="selectionlabel" for="dest">Hazards</label><br>
+        <input id="uhihazards" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Urban Heat Island Hazards</label><br>
+        <br> -->
+
+        <!-- <label class="selectionlabel" for="dest">Water Availability</label>
+        <br>
+        <input id="electricity" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Rain</label><br>
+        <input id="water" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">River</label><br>
+        <input id="water" class="layers" type="checkbox" name="vehicle" value="Bike">
+        <label class="layerlabel">Groundwater</label><br>
+        <br> -->
+
+     </div>
+     <div style="display:inline-block; position:relative; over-flow:auto; bottom: -0.463%; left:-0.312%; z-index:50;">
+       <button id="showmap">
+         Display Selected
+       </button>
+       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+       <button id="hidemap">
+         Clear Selection
+       </button>
+       <br>
+       <br>
+       <button class="btn btn-default dropdown-toggle" type="button" id="analysis" data-toggle="dropdown" aria-haspopup="true">
+         RUN THE ANALYSIS
+       </button>
+       <br>
+       <button class="btn btn-default dropdown-toggle" type="button" id="survey" data-toggle="dropdown" aria-haspopup="true" href="survey.html" onclick="javascript:void window.open('survey.html','1505751616431','overflow:auto, width=1100,height=960,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">
+         TAKE THE SURVEY
+       </button>
+     </div>
+    </div>
+
+
+    <div style="position:absolute; over-flow:auto; left:0.26%;width:19.8%;top:47.2%;">
+      <div id="results" style="display: none;">
+        <h5 id = "selection"></h5>
+        <h2 id = "sidebar-heading"><span id="LENGTH">City Name</span></h2>
+        <p class="annotation">
+          <span class="glyphicon glyphicon glyphicon-star"></span>
+          Road Indicators:
+          The Municipality of <span id="LENGTH"><strong>City Name </strong></span> is located in the
+          <span id="POP"><strong> department name </strong></span> department.
+          <br>
+          <br>
+          <span class="glyphicon glyphicon glyphicon-star"></span>
+          Population Indicators:
+          <span id="30PCT"><strong>gen_pov</strong></span> % of its population live in poverty.
+          <br>
+          <br>
+          <span class="glyphicon glyphicon glyphicon-star"></span>
+          Access to Institutions:
+          Its dataset's ID is <span id="60PCT"><strong>ID</strong></span> and the data was collected in year
+          <span id="90PCT"><strong></strong></span>.
+        </p>
+
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+   <div style = "position:absolute;left:0.26%;width:35%;top:98%;margin:1.3%;">
+      <!-- top:780px for the desktop -->
+        <img id = "logo" src="https://preview.ibb.co/i2z8FQ/logo.png">
+        <p class = storylink> About the DATA SOURCE &nbsp;
+           <a href="http://geoadaptive.com/home/practices/dataxlat/"target="_blank">
+             <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+           </a>
+        </p>
+        <!-- <p> There are over 10 cities in China with population over 10,000,000 in 2017. -->
+    </div>
+</div>
+<!-- <div id="map" style="position: absolute; right:330px; left: 380px; top:20px; height:98%; z-index:10;"></div> -->
+<div id="map" style="position: absolute; right:0; left:19.8%; top:2.8%; height:66%; z-index:70;"></div>
+  <div class="hint">
+    <p> Hint*: Click the boundaries to read statistics.</p>
+  </div>
+    <br>
+    <br>
+  <div class="dropdown2">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        BaseMaps
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li id = "dark"><a class = "option" href="#">Dark</a></li>
+          <li id = "light"><a class = "option" href="#">Light</a></li>
+          <li id = "satellite"><a class = "option" href="#">Satellite</a></li>
+      </ul>
+  </div>
+
+  <div class="description">
+      <div class="hazards">
+        <div id = "destext1">
+          <strong>Hazards</strong>
+          <br><br>
+          <p>Urban Heat Island (UHI) effect is a phenomenon which occurs in dense urban areas, caused by the high proportion of impervious surfaces,  proximity of large buildings, and low vegetation density. Thermal satellite imagery is used to monitor elevated surface temperatures, in order to develop a UHI index and identify patterns across the urban landscape.</p>
+        </div>
+        <button class="btn btn-default dropdown-toggle" type="button" id="hreport" onclick="tableToPDF1()" data-toggle="dropdown" aria-haspopup="true">
+          Generate Report
+        </button>
+      </div>
+
+      <div class="impacts">
+        <div id = "destext2">
+          <strong>Exposures</strong>
+          <br><br>
+          <p>High temperatures represent a significant threat to city dwellers, particularly vulnerable populations such as the elderly, children, and people with existing medical conditions. Local census data enables the assessment of human exposure to urban heat island, by quantifying the number of vulnerable people within areas of high UHI index values.</p>
+        </div>
+        <button class="btn btn-default dropdown-toggle" type="button" id="ireport" onclick="tableToPDF2()" data-toggle="dropdown" aria-haspopup="true">
+          Generate Report
+
+        <!-- here is how to store the actual PDFs on our server: -->
+        <!-- should use PHP must!!! -->
+        <!-- https://www.computerhope.com/issues/ch001113.htm -->
+
+        </button>
+      </div>
+
+      <div class="reporting">
+        <div id = "destext3">
+          <strong>Adaptation Strategies</strong>
+          <br><br>
+          <p>A range of policy and planning tools are available to help reduce the risk associated with hazard impacts. Adaptations to Urban Heat Island can include green measures such as increased vegetation cover, as well as soft approaches like developing a municipal adaptation plan.</p>
+        </div>
+        <br>
+        <br>
+        <!-- <button class="btn btn-default dropdown-toggle" type="button" id="rreport" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+          Adaptation Report
+        </button> -->
+        <br>
+        <br>
+        <br>
+        <button class="btn btn-default dropdown-toggle" type="button" id="rdata" onclick="tableToEXCEL()" data-toggle="dropdown" aria-haspopup="true">
+          Data Download
+        </button>
+      </div>
+
+    <!-- <div class = "surveyarea">
+      <p id = "destext2">
+        <strong>Survey Section</strong>
+        <br><br>
+        Here is the area for your inputs on comparative adaptation strategy.
+      </p>
+      <ul id = "destext3">
+        <p>1. Are you worried about the sea level rise in 10 years?<br><br>
+        2. Are you satisfied with your home area now?<br><br>
+        3. How is the Urban Heat Island Effect impact you?
+        </p>
+      </ul>
+    </div> -->
+
+    <!-- <div class = "buttonarea">
+      <p id = "destext4">
+        <strong>Report Section</strong>
+        <br><br>
+      </p>
+      <button class="btn btn-default dropdown-toggle" type="button" id="download1" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+        Hazards and Impacts
+      </button>
+      <button class="btn btn-default dropdown-toggle" type="button" id="download2" onclick="tableToExcel('testTable', 'Infrastructure Efficiency Profile')" data-toggle="dropdown" aria-haspopup="true">
+        Adaptation Strategy
+      </button>
+      <br>
+    </div> -->
+
+  </div>
+
+  <canvas id = "canvas" src = "http://www.processamentodigital.com.br/wp-content/uploads/2017/06/arcgis_composicao_rgb_sentinel2.jpg"></canvas>
+  <!-- //OPTIONAL LEGEND OBJECT -->
+  <div class="legend">
+      <h5>Urban Heat Island Effect in Torino</h5>
+      <div id = "box1">
+        <div class = "label1" id = "fill1" ></div><p class = label1>City Boundary </p>
+      </div>
+      <div style = "display:none" id = "box2">
+        <div class = "label1" id = "fill2" ></div><p class = label1> Buildings </p>
+      </div>
+      <div style = "display:none" id = "box3">
+        <div class = "label1" id = "fill3" ></div><p class = label1> Railways </p>
+      </div>
+      <div style = "display:none" id = "box4">
+        <div class = "label1" id = "fill4" ></div><p class = label1> Roads </p>
+      </div>
+      <div style = "display:none" id = "box5">
+        <div class = "label1" id = "fill5" ></div><p class = label1> Green Spaces</p>
+      </div>
+  </div>
+
+<!-- //LOAD THE LEGEND FOR THE COLOR RAMP   -->
+  <div class="ramptitle">
+    <h5 class = "title">Low Hazards</h5>
+    <h5 class = "title">High Hazards</h5>
+  </div>
+
+  <div class="coloramp">
+
+      <!-- <div>
+        <div class = label1 id = fill1></div><p class = label1>Low Exposure</p>
+      </div>
+      <div>
+        <div class = label1 id = fill2></div><p class = label1> High Exposure</p>
+      </div> -->
+  </div>
+<!--
+  <div class = "locationmap">
+    <canvas class="charts" id="myImage1"></canvas>
+  </div> -->
+
+
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <!-- <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet-src.js"
+  integrity="sha384-TWB9xRHTlLQmqAngHwD7usGcf4akGf0JP6aHwlgilpmOu2UuBq5aWLsDAh39iSn1"
+  crossorigin=""></script>
+  <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script> -->
+  <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
+
+
+
+  <script>
+    var bbox = turf.bbox(features);
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+  <!-- <script src="js/MidTerm-setup.js"></script> -->
+  <!-- <script src="bootstrap.js"></script> -->
+
+
+  <!-- <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print/jQuery.print.js"></script> -->
+  <script src="js/js_uhi.js"></script>
+  <!-- Copyright (c) 2010-2016 James Hall, https://github.com/MrRio/jsPDF -->
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+1. Which category of adaptation measures are you interesting to implement?
+	Grey
+	Green
+	Soft
+	Most relevant
+
+2. Is there any other hazards that affect your area?
+	Drought
+	Coastal and fluvial flooding
+	Pluvial flooding
+	Landslides
+
+3. When you want to implement your measures?
+	Short time
+	Medium
+	Long
+	Any
+
+4. In which type of land use are you interested?
+	Rural area
+	City center
+	Periurban
+	Industrial area
+	Open Space
+
+5. In which scale do you want to work?
+	Infrastructure scale
+	City scale
+	District or neighborhood scale 
+	Building scale
+
+6. Which type of intervention are you planning to develop?
+	New intervention
+	Reconstruction
+	Improvement of the existing
+	Regulation / Institution
+

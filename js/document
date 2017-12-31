@@ -1,0 +1,5 @@
+layer.mouseover(function(){
+  $(this).children(".popup").show();
+}).mouseout(function(){
+  $(this).children(".popup").hide();
+});

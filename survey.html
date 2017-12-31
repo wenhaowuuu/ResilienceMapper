@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<!-- HOW TO RECORD YOUR SCREEN -->
+<!-- https://www.digitaltrends.com/computing/how-to-record-your-computer-screen/ -->
+
+<html>
+<link rel="stylesheet" href="dist/leaflet.print.css"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="css/style0.css">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+crossorigin=""/>
+
+<!-- //LOAD THE SATELLITE MAP -->
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-image/v0.0.4/leaflet-image.js'></script> -->
+
+<body>
+
+<div id='map0' style="position: absolute; right:0px; left:19.8%; top:1.85%; height:68%; z-index:70;"></div>
+<!--Left Panel-->
+<div class = "header">
+  <p class = "header_text">Welcome to Adap<span id = "red">Kit</span></p>
+</div>
+
+<div style="display: block; over-flow:auto; position: absolute; left: 0.37%; width: 25%; top: 1.67%; data-bottom="false" z-index:50;">
+    <h2 class = "main-heading">Survey Page
+      <br>
+    </h2>
+    <br>
+    <br>
+    <br>
+    <p id = surveyintro>
+      This space is reserved for a short description of the purpose of the survey and will take about 3 minutes to complete. The information gathered will be used as a shared resource for all stakeholders to better understand the currently undertaken adaptation strategies.
+    </p>
+    <br>
+    <br>
+    <div class="search" style="display:inline-block;position:relative;left:0.52%;">
+      <div style="display:inline-block;">
+        <br>
+        </label>
+
+     </div>
+     <div style="display:inline-block; position:relative; over-flow:auto; bottom: -0.463%; left:-0.312%; z-index:50;">
+       <br>
+     </div>
+    </div>
+
+
+
+    <div style = "position:absolute;left:0.26%;width:35%;top:110%;margin:10px;">
+       <!-- top:780px for the desktop -->
+         <img id = "logo" src="https://preview.ibb.co/i2z8FQ/logo.png">
+         <!-- <p> There are over 10 cities in China with population over 10,000,000 in 2017. -->
+     </div>
+
+ </div>
+
+  <div class="surveyquestions">
+    <div class="section">
+      <label class="selectionlabel" for="dest">Question 1</label>
+      <br>
+      <label class="question" for="dest">Which category of adaptation measures are you interested in implementing?</label>
+      <br>
+      <input id="buildings" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Grey  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="industrial" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Green  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="railways" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Soft  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Most Relevant</label>
+      <br>
+    </div>
+    <br>
+    <div class="section">
+      <label class="selectionlabel" for="dest">Question 2</label>
+      <br>
+      <label class="question" for="dest">Are there any other hazards that affect your area?</label>
+      <br>
+      <input id="buildings" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Drought  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="industrial" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Coastal and fluvial flooding &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="railways" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Pluvial flooding  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Landslides</label>
+      <br>
+    </div>
+    <br>
+    <div class="section">
+      <label class="selectionlabel" for="dest">Question 3</label>
+      <br>
+      <label class="question" for="dest">Over what time frame do you want to implement your measures?</label>
+      <br>
+      <input id="buildings" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Short time &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="industrial" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Medium &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="railways" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Long  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Any</label>
+      <br>
+    </div>
+    <br>
+    <div class="section">
+      <label class="selectionlabel" for="dest">Question 4</label>
+      <br>
+      <label class="question" for="dest">Which types of land use are you interested in?</label>
+      <br>
+      <input id="buildings" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Rural area  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="industrial" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">City center  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="railways" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Periurban  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Industrial area  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+      <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Open Space</label>
+      <br>
+    </div>
+    <br>
+    <div class="section">
+      <label class="selectionlabel" for="dest">Question 5</label>
+      <br>
+      <label class="question" for="dest">In which scale do you want to work?</label>
+      <br>
+      <input id="buildings" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Infrastructure scale  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+      <input id="industrial" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">City scale  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+      <input id="railways" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">District or neighborhood scale  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+      <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Building scale</label>
+      <br>
+    </div>
+    <br>
+    <div class="section">
+      <label class="selectionlabel" for="dest">Question 6</label>
+      <br>
+      <label class="question" for="dest">Which type of intervention are you planning to develop?</label>
+      <br>
+      <input id="buildings" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">New intervention  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+      <input id="industrial" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Reconstruction  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+      <input id="railways" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Improvement of the existing  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</label>
+      <input id="roads" class="layers" type="checkbox" name="vehicle" value="Bike">
+      <label class="layerlabel">Regulation / Institution</label>
+      <br>
+    </div>
+
+    <button class="btn btn-default dropdown-toggle" type="button" id="rreport_s" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+      Adaptation Report
+    </button>
+      <!-- <div class="hazards">
+        <div id = "destext1">
+          <strong>Hazards</strong>
+          <br><br>
+          <p>Urban Heat Island (UHI) effect is a phenomenon which occurs in dense urban areas, caused by the high proportion of impervious surfaces,  proximity of large buildings, and low vegetation density. Thermal satellite imagery is used to monitor elevated surface temperatures, in order to develop a UHI index and identify patterns across the urban landscape.</p>
+        </div>
+        <button class="btn btn-default dropdown-toggle" type="button" id="hreport" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+          Generate Report
+        </button>
+      </div>
+
+      <div class="impacts">
+        <div id = "destext2">
+          <strong>Exposures</strong>
+          <br><br>
+          <p>High temperatures represent a significant threat to city dwellers, particularly vulnerable populations such as the elderly, children, and people with existing medical conditions. Local census data enables the assessment of human exposure to urban heat island, by quantifying the number of vulnerable people within areas of high UHI index values.</p>
+        </div>
+        <button class="btn btn-default dropdown-toggle" type="button" id="ireport" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+          Generate Report
+        </button>
+      </div>
+
+      <div class="reporting">
+        <div id = "destext3">
+          <strong>Adaptation Strategies</strong>
+          <br><br>
+          <p>A range of policy and planning tools are available to help reduce the risk associated with hazard impacts. Adaptations to Urban Heat Island can include green measures such as increased vegetation cover, as well as soft approaches like developing a municipal adaptation plan.</p>
+        </div>
+        <br>
+        <br>
+        <button class="btn btn-default dropdown-toggle" type="button" id="rreport" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+          Adaptation Report
+        </button>
+        <br>
+        <br>
+        <br>
+        <button class="btn btn-default dropdown-toggle" type="button" id="rdata" onclick="tableToEXCEL()" data-toggle="dropdown" aria-haspopup="true">
+          Data Download
+        </button>
+      </div> -->
+
+  </div>
+
+      <!-- <div>
+        <div class = label1 id = fill1></div><p class = label1>Low Exposure</p>
+      </div>
+      <div>
+        <div class = label1 id = fill2></div><p class = label1> High Exposure</p>
+      </div> -->
+  </div>
+<!--
+  <div class = "locationmap">
+    <canvas class="charts" id="myImage1"></canvas>
+  </div> -->
+
+
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  <!-- A click on  -->
+  <!-- Javascript Imports -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <!-- <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet-src.js"
+  integrity="sha384-TWB9xRHTlLQmqAngHwD7usGcf4akGf0JP6aHwlgilpmOu2UuBq5aWLsDAh39iSn1"
+  crossorigin=""></script>
+  <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script> -->
+  <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
+
+
+
+  <script>
+    // var bbox = turf.bbox(features);
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+  <!-- <script src="js/MidTerm-setup.js"></script> -->
+  <!-- <script src="bootstrap.js"></script> -->
+
+
+  <!-- <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print/jQuery.print.js"></script> -->
+  <script src="js/js02.js"></script>
+  <!-- Copyright (c) 2010-2016 James Hall, https://github.com/MrRio/jsPDF -->
+
+</body>
+</html>

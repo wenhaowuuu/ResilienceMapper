@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<!-- //SCROLL DOWN EFFECT
+https://codepen.io/nxworld/pen/OyRrGy -->
+
+<html>
+      <div class = "heading">
+        <h2 id = "fade-in">Welcome to Adap<strong id = x>Kit</strong></h2>
+        <br>
+        <label>
+        </label>
+        <br>
+      </div>
+
+      <!-- <div style = "position:absolute;right:0px;width:390px;top:10px;margin:0px;"> -->
+        <!-- top:780px for the desktop -->
+          <!-- <img id = "logo" src="https://preview.ibb.co/cCL5ia/GA_logo_transparent_background.png"> -->
+          <img id = "logo" src = "https://preview.ibb.co/i2z8FQ/logo.png">
+          <!-- <p> There are over 10 cities in China with population over 10,000,000 in 2017. -->
+      <!-- </div> -->
+
+    <!-- <img class = "welcomeimage" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Genova-panorama_dal_santuario_ns_del_gazzo5.jpg"> -->
+    <img class = "welcomeimage" src="http://exobase.exosphe.re/wp-content/uploads/2015/02/torino1.jpg">
+
+<!-- make this bound into the selection box -->
+        <!-- <a href="#" class = "enter1">enter</a>
+        <a href="https://www.w3schools.com" class = "enter2">enter</a>
+        <a href="#" class = "enter3">enter</a> -->
+
+    <!-- <div class = "search">
+          <h3 id = "fade-in1" >
+            Look for any places
+          </h3>
+          <div class = "overlay-box0">
+            <input class = "searchtype" type = "text" name = "city or places">
+            <br>
+            <br>
+          </div>
+    </div> -->
+
+
+<!-- //THE SLOGAN LINE -->
+    <p id = "slogan">
+      <!-- Unfolding Strategic Insights about Adaptation Strategies on Territorial Landscapes. -->
+      Territorial Intelligence for Climate Adaptation
+    </p>
+      <div class = "overlay-box1">
+        <a class="btn1" href="https://www.w3schools.com">
+          <img class = "icon" src="infra-03.png" alt="Mountain View">
+        </a>
+        <i class="ion-ios-arrow-down">
+          <a id = "fade-in1" href="https://www.w3schools.com"> INFRASTRUCTURE</a>
+        </i>
+        <br>
+        <br>
+      </div>
+
+      <div class = "overlay-box2">
+        <a class="btn2" href="uhi.html">
+          <img class = "icon" src="urbanheatisland-03.png" alt="Mountain View">
+        </a>
+        <i class="ion-ios-arrow-down">
+            <a id = "fade-in2" href="subpages/uhi.html"> URBAN HEAT ISLAND</a>
+        </i>
+        <br>
+        <br>
+      </div>
+
+      <div class = "overlay-box3">
+        <a class="btn3" href="https://www.w3schools.com">
+          <img class = "icon" src="landslides-03.png" alt="Mountain View">
+        </a>
+        <i class="ion-ios-arrow-down">
+          <a id = "fade-in3" href="https://www.w3schools.com"> LANDSLIDE</a>
+        </i>
+        <br>
+        <br>
+      </div>
+
+      <div class = "overlay-box4">
+        <a class="btn4" href="https://www.w3schools.com">
+          <img class = "icon" src="flooding-03.png" alt="Mountain View">
+        </a>
+        <i class="ion-ios-arrow-down">
+          <a id = "fade-in4" href="https://www.w3schools.com"> FLOODING</a>
+        </i>
+        <br>
+        <br>
+      </div>
+
+      <div>
+        <button class="btn btn-default dropdown-toggle" type="button" id="login" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+          Log in
+        </button>
+
+        <button class="btn btn-default dropdown-toggle" type="button" id="signup" onclick="tableToPDF()" data-toggle="dropdown" aria-haspopup="true">
+          Sign up
+        </button>
+
+
+        <img id = "loginicon" src="https://image.ibb.co/jgmUok/iconlogin.png">
+        <p class = "logined">logged in as <br>
+          <strong id = "account">geo AdapKit</strong>
+        </p>
+      </div>
+
+      <!-- <div class = "companyintro">
+        <a href = "http://geoadaptive.com/">
+          Visit GeoAdaptive
+        </a>
+      </div> -->
+
+
+  <head>
+  <script src="dist/bundle.js"></script>
+    <style>
+	</style>
+
+
+  <!-- //try with the leaflet image -->
+  <script src="js/leaflet-image.js"></script>
+  <style>
+
+  </style>
+  <!-- <button id='snap' class='ui-button'>Take a snapshot</button> -->
+  <!-- <div id='snapshot'></div> -->
+  <script>
+// THIS IS SO COOL!!! THE MOUSE HEAT MAP
+// https://rawgit.com/mapbox/leaflet-image/gh-pages/index.html
+  </script>
+    <link rel="stylesheet" href="dist/leaflet.print.css"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- //LOAD FONTS -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">    -->
+
+    <!-- fonts: a combination of google fonts and local fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+    integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+    crossorigin=""/>
+  </head>
+
+  <body>
+    <div class = "wrapper">
+    <div id='map0'></div>
+    <!-- <div id="map2" style="position: absolute; right:0; left: 400px; top: 30px; height:100%; z-index:20;"></div> -->
+
+    </div>
+
+    </div>
+
+    </div>
+
+ <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+      <!-- A click on  -->
+      <!-- Javascript Imports -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+      <!-- <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet-src.js"
+      integrity="sha384-TWB9xRHTlLQmqAngHwD7usGcf4akGf0JP6aHwlgilpmOu2UuBq5aWLsDAh39iSn1"
+      crossorigin=""></script>
+      <script
+          src="https://code.jquery.com/jquery-2.2.4.min.js"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <!-- <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script> -->
+      <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
+
+
+
+      <script>
+        // var bbox = turf.bbox(features);
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+      <!-- <script src="js/MidTerm-setup.js"></script> -->
+      <!-- <script src="bootstrap.js"></script> -->
+
+
+      <!-- <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print/jQuery.print.js"></script> -->
+      <script src="js/js11.js"></script>
+      <!-- Copyright (c) 2010-2016 James Hall, https://github.com/MrRio/jsPDF -->
+
+
+    </div>
+  </body>
+</html>
