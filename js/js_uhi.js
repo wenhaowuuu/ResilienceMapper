@@ -86,6 +86,36 @@ L.tileLayer('http://{s}.basemaps.cartocdn.com/'+ Style + '_all/{z}/{x}/{y}@2x.pn
 }).addTo(map);
 
 
+//1.2 SWITCH BASEMAPS
+var darkmap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png', {
+  maxZoom: 18,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>',
+  subdomains: 'abcd'
+}),
+
+  lightmap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>',
+    subdomains: 'abcd'
+  });
+
+
+$('#dark').click(function(){
+  console.log("dark clicked.");
+    $('#map0').hide();
+    $('#map').show();
+    map.removeLayer(Basemap);
+    map.removeLayer(lightmap);
+    map.addLayer(darkmap);
+});
+
+$('#light').click(function(){
+    $('#map0').hide();
+    $('#map').show();
+    map.removeLayer(Basemap);
+    map.removeLayer(darkmap);
+    map.addLayer(lightmap);
+});
 
 //1.3 LOAD SATELLITE MAP
 $('#satellite').click(function(){
@@ -235,50 +265,6 @@ imagezoomBounds = [[45.029872,7.647414], [45.017178,7.622817]];
 // var distance = distance(from, to, units);
 
 
-//EXAMPLE WITH INTERSECT
-// const intersect = require('@turf/intersect');
-//
-// var poly1 = turf.polygon([[
-//   [-122.801742, 45.48565],
-//   [-122.801742, 45.60491],
-//   [-122.584762, 45.60491],
-//   [-122.584762, 45.48565],
-//   [-122.801742, 45.48565]
-// ]]);
-//
-// var poly2 = turf.polygon([[
-//   [-122.520217, 45.535693],
-//   [-122.64038, 45.553967],
-//   [-122.720031, 45.526554],
-//   [-122.669906, 45.507309],
-//   [-122.723464, 45.446643],
-//   [-122.532577, 45.408574],
-//   [-122.487258, 45.477466],
-//   [-122.520217, 45.535693]
-// ]]);
-//
-// var intersection = turf.intersect(poly1, poly2).addTo(map);
-
-// intersection.addTo(map);
-
-//ADD VALUE CHAIN LOCATIONS FOR HONDURAS
-// L.marker([13.309449, -87.227567]).addTo(map).bindPopup('Iron and steel Fundición y Maquinado (FUNYMAQ) Grupo Imferra');
-// L.marker([15.472559, -88.028377]).addTo(map).bindPopup('Other bars and rods of iron or non alloy steel, not further worked thanforged, hot-rolled, hotdrawn or hot-extruded; forged INTREFICA');
-// L.marker([13.336175, -87.205594]).addTo(map).bindPopup('Barbed wire of iron or steel; twisted hoop or single flat wire, barbed or not, and loosely twisted double wire, of a kind use for fencing Derivados de Metal, S.A. INTREFICA');
-// L.marker([15.513698, -88.007150]).addTo(map).bindPopup('Endless bands for machinery, of stainless steel INTREFICA');
-
-
-//1.2 SWITCH BASEMAPS
-$('#dark').click(function(){
-  $('#map0').hide();
-  $('#map').show();
-  Style = 'dark';
-  L.tileLayer('http://{s}.basemaps.cartocdn.com/'+ Style + '_all/{z}/{x}/{y}@2x.png', {
-    maxZoom: 18,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>',
-    subdomains: 'abcd'
-  }).addTo(map);
-});
 
 // 1.3 SWITCHING SCALES
 
